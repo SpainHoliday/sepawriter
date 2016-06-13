@@ -136,5 +136,19 @@ namespace SpainHoliday.SepaWriter.Test
             Assert.That(() => { new SepaIbanData { Iban = "FR01234567890" }; },
                 Throws.TypeOf<SepaRuleException>().With.Property("Message").Contains("Null or Invalid length of IBAN code"));
         }
+
+        [Test]
+        public void ShouldRejectInvalidIbanFormat()
+        {
+            Assert.That(() => { new SepaIbanData { Iban = "FRBABABA2005500000157845Z02" , Bic = Bic}; },
+                Throws.TypeOf<SepaRuleException>().With.Property("Message").Contains("Invalid format of IBAN code"));
+        }
+
+        [Test]
+        public void ShouldRejectInvalidBicFormat()
+        {
+            Assert.That(() => { new SepaIbanData { Iban = Iban, Bic = "SOGE11PPXXX" }; },
+                Throws.TypeOf<SepaRuleException>().With.Property("Message").Contains("Invalid format of BIC/swift code"));
+        }
     }
 }

@@ -15,8 +15,8 @@ namespace SpainHoliday.SepaWriter.Test.Utils
             xml.AppendChild(xml.CreateXmlDeclaration("1.0", Encoding.UTF8.BodyName, "yes"));
             var el = (XmlElement)xml.AppendChild(xml.CreateElement("Document"));
 
-            XmlUtils.CreateBic(el, new SepaIbanData { Bic="01234567" });
-            Assert.AreEqual("<FinInstnId><BIC>01234567</BIC></FinInstnId>", el.InnerXml);
+            XmlUtils.CreateBic(el, new SepaIbanData { Bic="ABCDEF2A" });
+            Assert.AreEqual("<FinInstnId><BIC>ABCDEF2A</BIC></FinInstnId>", el.InnerXml);
         }
 
         [Test]

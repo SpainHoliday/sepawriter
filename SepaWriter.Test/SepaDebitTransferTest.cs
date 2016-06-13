@@ -21,7 +21,7 @@ namespace SpainHoliday.SepaWriter.Test
             "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?><Document xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.008.001.02\"><CstmrDrctDbtInitn><GrpHdr><MsgId>transferID</MsgId><CreDtTm>2013-02-17T22:38:12</CreDtTm><NbOfTxs>1</NbOfTxs><CtrlSum>23.45</CtrlSum><InitgPty><Nm>Me</Nm><Id><OrgId><Othr><Id>MyId</Id></Othr></OrgId></Id></InitgPty></GrpHdr><PmtInf><PmtInfId>paymentInfo</PmtInfId><PmtMtd>DD</PmtMtd><NbOfTxs>1</NbOfTxs><CtrlSum>23.45</CtrlSum><PmtTpInf><SvcLvl><Cd>SEPA</Cd></SvcLvl><LclInstrm><Cd>CORE</Cd></LclInstrm><SeqTp>OOFF</SeqTp></PmtTpInf><ReqdColltnDt>2013-02-17</ReqdColltnDt><Cdtr><Nm>My Corp</Nm></Cdtr><CdtrAcct><Id><IBAN>FR7030002005500000157845Z02</IBAN></Id><Ccy>EUR</Ccy></CdtrAcct><CdtrAgt><FinInstnId><BIC>SOGEFRPPXXX</BIC></FinInstnId></CdtrAgt><ChrgBr>SLEV</ChrgBr><CdtrSchmeId><Id><PrvtId><Othr><Id /><SchmeNm><Prtry>SEPA</Prtry></SchmeNm></Othr></PrvtId></Id></CdtrSchmeId><DrctDbtTxInf><PmtId><InstrId>Transaction Id 1</InstrId><EndToEndId>paymentInfo/1</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">23.45</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId>First mandate</MndtId><DtOfSgntr>2012-12-07</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>AGRIFRPPXXX</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>THEIR_NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description</Ustrd></RmtInf></DrctDbtTxInf></PmtInf></CstmrDrctDbtInitn></Document>";
 
         private const string MULTIPLE_ROW_RESULT =
-            "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?><Document xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.008.001.02\"><CstmrDrctDbtInitn><GrpHdr><MsgId>transferID</MsgId><CreDtTm>2013-02-17T22:38:12</CreDtTm><NbOfTxs>3</NbOfTxs><CtrlSum>63.36</CtrlSum><InitgPty><Nm>Me</Nm></InitgPty></GrpHdr><PmtInf><PmtInfId>paymentInfo</PmtInfId><PmtMtd>DD</PmtMtd><NbOfTxs>3</NbOfTxs><CtrlSum>63.36</CtrlSum><PmtTpInf><SvcLvl><Cd>SEPA</Cd></SvcLvl><LclInstrm><Cd>CORE</Cd></LclInstrm><SeqTp>OOFF</SeqTp></PmtTpInf><ReqdColltnDt>2013-02-18</ReqdColltnDt><Cdtr><Nm>My Corp</Nm></Cdtr><CdtrAcct><Id><IBAN>FR7030002005500000157845Z02</IBAN></Id><Ccy>EUR</Ccy></CdtrAcct><CdtrAgt><FinInstnId><BIC>SOGEFRPPXXX</BIC></FinInstnId></CdtrAgt><ChrgBr>SLEV</ChrgBr><CdtrSchmeId><Id><PrvtId><Othr><Id /><SchmeNm><Prtry>SEPA</Prtry></SchmeNm></Othr></PrvtId></Id></CdtrSchmeId><DrctDbtTxInf><PmtId><InstrId>Transaction Id 1</InstrId><EndToEndId>multiple1</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">23.45</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId>First mandate</MndtId><DtOfSgntr>2012-12-07</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>AGRIFRPPXXX</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>THEIR_NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description</Ustrd></RmtInf></DrctDbtTxInf><DrctDbtTxInf><PmtId><InstrId>Transaction Id 2</InstrId><EndToEndId>paymentInfo/2</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">12.56</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId>First mandate</MndtId><DtOfSgntr>2012-12-07</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>AGRIFRPPXXX</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>THEIR_NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description 2</Ustrd></RmtInf></DrctDbtTxInf><DrctDbtTxInf><PmtId><InstrId>Transaction Id 3</InstrId><EndToEndId>paymentInfo/3</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">27.35</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId /><DtOfSgntr>0001-01-01</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>BANK_BIC</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>ACCOUNT_IBAN_SAMPLE</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description 3</Ustrd></RmtInf></DrctDbtTxInf></PmtInf></CstmrDrctDbtInitn></Document>";
+            "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?><Document xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.008.001.02\"><CstmrDrctDbtInitn><GrpHdr><MsgId>transferID</MsgId><CreDtTm>2013-02-17T22:38:12</CreDtTm><NbOfTxs>3</NbOfTxs><CtrlSum>63.36</CtrlSum><InitgPty><Nm>Me</Nm></InitgPty></GrpHdr><PmtInf><PmtInfId>paymentInfo</PmtInfId><PmtMtd>DD</PmtMtd><NbOfTxs>3</NbOfTxs><CtrlSum>63.36</CtrlSum><PmtTpInf><SvcLvl><Cd>SEPA</Cd></SvcLvl><LclInstrm><Cd>CORE</Cd></LclInstrm><SeqTp>OOFF</SeqTp></PmtTpInf><ReqdColltnDt>2013-02-18</ReqdColltnDt><Cdtr><Nm>My Corp</Nm></Cdtr><CdtrAcct><Id><IBAN>FR7030002005500000157845Z02</IBAN></Id><Ccy>EUR</Ccy></CdtrAcct><CdtrAgt><FinInstnId><BIC>SOGEFRPPXXX</BIC></FinInstnId></CdtrAgt><ChrgBr>SLEV</ChrgBr><CdtrSchmeId><Id><PrvtId><Othr><Id /><SchmeNm><Prtry>SEPA</Prtry></SchmeNm></Othr></PrvtId></Id></CdtrSchmeId><DrctDbtTxInf><PmtId><InstrId>Transaction Id 1</InstrId><EndToEndId>multiple1</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">23.45</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId>First mandate</MndtId><DtOfSgntr>2012-12-07</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>AGRIFRPPXXX</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>THEIR_NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description</Ustrd></RmtInf></DrctDbtTxInf><DrctDbtTxInf><PmtId><InstrId>Transaction Id 2</InstrId><EndToEndId>paymentInfo/2</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">12.56</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId>First mandate</MndtId><DtOfSgntr>2012-12-07</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>AGRIFRPPXXX</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>THEIR_NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description 2</Ustrd></RmtInf></DrctDbtTxInf><DrctDbtTxInf><PmtId><InstrId>Transaction Id 3</InstrId><EndToEndId>paymentInfo/3</EndToEndId></PmtId><InstdAmt Ccy=\"EUR\">27.35</InstdAmt><DrctDbtTx><MndtRltdInf><MndtId /><DtOfSgntr>0001-01-01</DtOfSgntr></MndtRltdInf></DrctDbtTx><DbtrAgt><FinInstnId><BIC>AAAAAA2A</BIC></FinInstnId></DbtrAgt><Dbtr><Nm>NAME</Nm></Dbtr><DbtrAcct><Id><IBAN>AA1234567890123</IBAN></Id></DbtrAcct><RmtInf><Ustrd>Transaction description 3</Ustrd></RmtInf></DrctDbtTxInf></PmtInf></CstmrDrctDbtInitn></Document>";
         
         private static SepaDebitTransferTransaction CreateTransaction(string id, decimal amount, string information)
         {
@@ -156,8 +156,8 @@ namespace SpainHoliday.SepaWriter.Test
                     Id = "Transaction Id 3",
                     Debtor = new SepaIbanData
                         {
-                            Bic = "BANK_BIC",
-                            Iban = "ACCOUNT_IBAN_SAMPLE",
+                            Bic = "AAAAAA2A",
+                            Iban = "AA1234567890123",
                             Name = "NAME"
                         },
                     Amount = amount3,
@@ -201,8 +201,8 @@ namespace SpainHoliday.SepaWriter.Test
                 Id = "Transaction Id 3",
                 Debtor = new SepaIbanData
                 {
-                    Bic = "BANK_BIC",
-                    Iban = "ACCOUNT_IBAN_SAMPLE",
+                    Bic = "AAAAAA2A",
+                    Iban = "AA1234567890123",
                     Name = "NAME"
                 },
                 Amount = amount3,
@@ -242,8 +242,8 @@ namespace SpainHoliday.SepaWriter.Test
                 Id = "Transaction Id 3",
                 Debtor = new SepaIbanData
                 {
-                    Bic = "BANK_BIC",
-                    Iban = "ACCOUNT_IBAN_SAMPLE",
+                    Bic = "AAAAAA2A",
+                    Iban = "AA1234567890123",
                     Name = "NAME"
                 },
                 Amount = amount3,

@@ -39,9 +39,10 @@ namespace SpainHoliday.SepaWriter
         }
 
         /// <summary>
-        /// The BIC Code
+        /// The BIC Code (has to be uppercase)
         /// </summary>
         /// <exception cref="SepaRuleException">If BIC hasn't 8 or 11 characters.</exception>
+        /// <exception cref="SepaRuleException">Invalid BIC format.</exception>
         public string Bic
         {
             get { return bic; }
@@ -50,14 +51,23 @@ namespace SpainHoliday.SepaWriter
 				if (value == null || (value.Length != 8 && value.Length != 11)) {
 					throw new SepaRuleException(string.Format("Null or Invalid length of BIC/swift code \"{0}\", must be 8 or 11 chars.", value));
 				}
+                var regex = @"^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$";
+                var match = Regex.Match(value, regex, RegexOptions.IgnoreCase);
+
+                if (!match.Success)
+                {
+                    // does not match
+					throw new SepaRuleException(string.Format("Invalid format of BIC/swift code \"{0}\".", value));
+                }
                 bic = value;
             }
         }
 
         /// <summary>
-        /// The IBAN Number
+        /// The IBAN Number (has to be uppercase)
         /// </summary>
         /// <exception cref="SepaRuleException">If IBAN length is not between 14 and 34 characters.</exception>
+        /// <exception cref="SepaRuleException">Invalid format of IBAN code.</exception>
         public string Iban
         {
             get { return iban; }
@@ -65,7 +75,17 @@ namespace SpainHoliday.SepaWriter
             {
                 if (value == null || value.Length < 14 || value.Length > 34)
                     throw new SepaRuleException(string.Format("Null or Invalid length of IBAN code \"{0}\", must contain between 14 and 34 characters.", value));
-                iban = SpaceRegex.Replace(value, string.Empty);
+
+                value = SpaceRegex.Replace(value, string.Empty);
+                var regex = @"^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$";
+                var match = Regex.Match(value, regex, RegexOptions.IgnoreCase);
+
+                if (!match.Success)
+                {
+                    // does not match
+                    throw new SepaRuleException(string.Format("Invalid format of IBAN code \"{0}\".", value));
+                }
+                iban = value;
             }
         }
 
