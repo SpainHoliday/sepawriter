@@ -51,6 +51,7 @@ namespace SpainHoliday.SepaWriter
 				if (value == null || (value.Length != 8 && value.Length != 11)) {
 					throw new SepaRuleException(string.Format("Null or Invalid length of BIC/swift code \"{0}\", must be 8 or 11 chars.", value));
 				}
+                value = value.ToUpper();
                 var regex = @"^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$";
                 var match = Regex.Match(value, regex, RegexOptions.IgnoreCase);
 
@@ -76,7 +77,7 @@ namespace SpainHoliday.SepaWriter
                 if (value == null || value.Length < 14 || value.Length > 34)
                     throw new SepaRuleException(string.Format("Null or Invalid length of IBAN code \"{0}\", must contain between 14 and 34 characters.", value));
 
-                value = SpaceRegex.Replace(value, string.Empty);
+                value = SpaceRegex.Replace(value.ToUpper(), string.Empty);
                 var regex = @"^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$";
                 var match = Regex.Match(value, regex, RegexOptions.IgnoreCase);
 

@@ -7,14 +7,15 @@ Only one PaymentInformation is managed but it can manage multiple transactions.
 - The debtor is common to all transactions in a Credit transfer.
 - The creditor is common to all transactions in a Debit transfer.
 
-It follow "Customer Credit Transfer Initiation" &lt;pain.001.001.03&gt; defined in ISO 20022 but also some specific french rules (field used size != allowed size). Debit uses &lt;pain.008.001.02&gt; defined in ISO 20022 and the same french restrictions.
+It follows the "Customer Credit Transfer Initiation" &lt;pain.001.001.03&gt; defined in ISO 20022 - the original repository also includes some specific french rules (field used size != allowed size).
+Debit uses &lt;pain.008.001.02&gt; defined in ISO 20022 and the same french restrictions.
+
+This version of the SepaWriter repository has automatic conversion to UPPERCASE for Bic/IBAN, with Regex added for Bic and IBAN code validation.
+
+Checksum has not yet been added, but the plan is to add checksum validation.
 
 English usage guide :
 http://www.swift.com/assets/corporates/documents/our_solution/implementing_your_project_2009_iso20022_usage_guide.pdf
-
-French usage guide :
-http://www.cfonb.org/fichiers/20130612091605_3_15_Guide_ISO20022_remises_informatisees_d_ordres_de_paiement_20100602_virement_V2.0_2010_06.pdf
-http://cfonb.inie.makoa.fr/fichiers/20131206162450_2_11_Guide_ISO20022_remises_informatisees_dordres_de_prelevement_SEPA_pain.008__v1.2__2013_12.pdf
 
 Sample
 ---
