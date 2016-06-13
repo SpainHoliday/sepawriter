@@ -65,7 +65,7 @@ namespace SpainHoliday.SepaWriter.Test
             return transfert;
         }
 
-        [TestFixtureTearDown]
+        [TearDown]
         public void Cleanup()
         {
             if (File.Exists(FILENAME))

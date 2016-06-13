@@ -66,7 +66,7 @@ namespace SpainHoliday.SepaWriter.Test
             return transfert;
         }
 
-        [TestFixtureTearDown]
+        [TearDown]
         public void Cleanup()
         {
             if (File.Exists(FILENAME))
@@ -636,6 +636,20 @@ namespace SpainHoliday.SepaWriter.Test
         {
             var transfer = new SepaCreditTransfer("Dkk");
             Assert.That(transfer.DebtorAccountCurrency, Is.EqualTo("DKK"));
+        }
+
+
+
+        [TestCase("AL47212111190000000235698741")] // Albania
+        [TestCase("AD1200011130200359100100")] // Andorra
+        [TestCase("AT611901100234573201")] // Austria
+        [TestCase("AZ21NABZ00110000137010001944")] // Azerbaijan, Republic of
+        [TestCase("BH67BMAG01001299123456")] // Bahrain
+        [TestCase("BE68531007547034")] // Belgium
+        public void ShouldRejectInvalidChecksum(string iban)
+        {
+            Assert.That(() => new SepaIbanData { Iban = iban },
+                Throws.TypeOf<SepaRuleException>().With.Property("Message").Contains("Invalid IBAN checksum"));
         }
     }
 }
