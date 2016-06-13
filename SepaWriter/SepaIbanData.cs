@@ -86,6 +86,12 @@ namespace SpainHoliday.SepaWriter
                     // does not match
                     throw new SepaRuleException(string.Format("Invalid format of IBAN code \"{0}\".", value));
                 }
+                if (!IbanValidationUtils.IsIbanChecksumValid(value))
+                {
+                    throw new SepaRuleException(string.Format("Invalid IBAN checksum on \"{0}\".", value));
+
+                }
+
                 iban = value;
             }
         }
