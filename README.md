@@ -17,9 +17,9 @@ New in version 1.0.3
 IBAN checksum validation was added, as well as regex for Bic and IBAN validation.
 
 
-Usage guide
+Usage
 ---
-See http://www.swift.com/assets/corporates/documents/our_solution/implementing_your_project_2009_iso20022_usage_guide.pdf (English)
+In [English](http://www.swift.com/assets/corporates/documents/our_solution/implementing_your_project_2009_iso20022_usage_guide.pdf) (PDF)
 
 If you need IBAN codes for testing, check out [MobileFish](http://www.mobilefish.com/services/random_iban_generator/random_iban_generator.php) or [GenerateIban](https://www.generateiban.com/test-iban/)
 
