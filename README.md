@@ -4,7 +4,7 @@ SepaWriter
 
 Manage SEPA (Single Euro Payments Area) Credit and Debit Transfer for SEPA or international order.
 Only one PaymentInformation is managed but it can manage multiple transactions. 
-- The debtor is common to all transactions in a Credit transfer.
+- The debitor is common to all transactions in a Credit transfer.
 - The creditor is common to all transactions in a Debit transfer.
 
 It follows the "Customer Credit Transfer Initiation" &lt;pain.001.001.03&gt; defined in ISO 20022 - the original repository also includes some specific french rules (field used size != allowed size).
@@ -12,10 +12,14 @@ Debit uses &lt;pain.008.001.02&gt; defined in ISO 20022 and the same french rest
 
 This version of the SepaWriter repository has automatic conversion to UPPERCASE for Bic/IBAN, with Regex added for Bic and IBAN code validation.
 
-Checksum has not yet been added, but the plan is to add checksum validation.
+New in version 1.0.3
+---
+IBAN checksum validation was added, as well as regex for Bic and IBAN validation.
 
-English usage guide :
-http://www.swift.com/assets/corporates/documents/our_solution/implementing_your_project_2009_iso20022_usage_guide.pdf
+
+English usage guide
+---
+See http://www.swift.com/assets/corporates/documents/our_solution/implementing_your_project_2009_iso20022_usage_guide.pdf
 
 Sample
 ---
