@@ -640,12 +640,34 @@ namespace SpainHoliday.SepaWriter.Test
 
 
 
-        [TestCase("AL47212111190000000235698741")] // Albania
-        [TestCase("AD1200011130200359100100")] // Andorra
-        [TestCase("AT611901100234573201")] // Austria
-        [TestCase("AZ21NABZ00110000137010001944")] // Azerbaijan, Republic of
-        [TestCase("BH67BMAG01001299123456")] // Bahrain
-        [TestCase("BE68531007547034")] // Belgium
+        [TestCase("AL47212111190000000235698741")] // Albania - edited
+        [TestCase("AD1200011130200359100100")] // Andorra - edited
+        [TestCase("AT611901100234573201")] // Austria - edited
+        [TestCase("AZ21NABZ00110000137010001944")] // Azerbaijan - edited
+        [TestCase("BH67BMAG01001299123456")] // Bahrain - edited
+        [TestCase("BE18531007547034")] // Belgium - edited
+        [TestCase("CR0515102001026284066")] // Costa Rica - edited
+        [TestCase("HR1210110051863000160")] // Croatia - edited
+        [TestCase("CY17001001280000001200527600")] // Cyprus - edited
+        [TestCase("CZ6508010000192000145399")] // Czech Republic - edited
+        [TestCase("DK5000100440116243")] // Denmark - edited
+        [TestCase("DO28BAGR01000001212453611324")] // Dominican Republic - edited
+        [TestCase("EE382200211020145685")] // Estonia - edited
+        [TestCase("FO6264600101631634")] // Faroe Islands - edited
+        [TestCase("FI2112345600000715")] // Finland - edited
+        [TestCase("FR1420041010050501013M02606")] // France - edited
+        [TestCase("GE29NB0000000111104917")] // Georgia - edited
+        [TestCase("DE89370400440532111000")] // Germany - edited
+        [TestCase("GI75NWBK000000001099453")] // Gibraltar - edited
+        [TestCase("GR1601101250000010012300695")] // Greece - edited
+        [TestCase("GL8964710001000216")] // Greenland - edited
+        [TestCase("GT82TRAJ01020000001110029690")] // Guatemala - edited
+        [TestCase("HU42117730161111101100000000")] // Hungary - edited
+        [TestCase("IS140159260076545511730339")] // Iceland - edited
+        [TestCase("IE29AIBK93115212345178")] // Ireland - edited
+        [TestCase("IL620108000000099991999")] // Israel - edited
+        [TestCase("IT60X0542811101000010123456")] // Italy - edited
+        [TestCase("JO94CBJO0010000000010131000302")] // Jordan - edited
         public void ShouldRejectInvalidChecksum(string iban)
         {
             Assert.That(() => new SepaIbanData { Iban = iban },
