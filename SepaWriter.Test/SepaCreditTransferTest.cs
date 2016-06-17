@@ -56,9 +56,31 @@ namespace SpainHoliday.SepaWriter.Test
             };
         }
 
+        private static SepaCreditTransfer GetEmptyCreditTransfert(string currency)
+        {
+            return new SepaCreditTransfer(currency)
+            {
+                CreationDate = new DateTime(2013, 02, 17, 22, 38, 12),
+                RequestedExecutionDate = new DateTime(2013, 02, 17),
+                MessageIdentification = "transferID",
+                PaymentInfoId = "paymentInfo",
+                InitiatingPartyName = "Me",
+                Debtor = Debtor
+            };
+        }
+
         private static SepaCreditTransfer GetOneTransactionCreditTransfert(decimal amount)
         {
             var transfert = GetEmptyCreditTransfert();
+            transfert.InitiatingPartyId = "MyId";
+            transfert.LocalInstrumentCode = "MyCode";
+
+            transfert.AddCreditTransfer(CreateTransaction("Transaction Id 1", amount, "Transaction description"));
+            return transfert;
+        }
+        private static SepaCreditTransfer GetOneTransactionCreditTransfert(decimal amount, string currency)
+        {
+            var transfert = GetEmptyCreditTransfert(currency);
             transfert.InitiatingPartyId = "MyId";
             transfert.LocalInstrumentCode = "MyCode";
 
@@ -479,6 +501,20 @@ namespace SpainHoliday.SepaWriter.Test
             Assert.AreEqual(total, transfert.PaymentControlSumInCents);
 
             Assert.AreEqual(ONE_ROW_RESULT, transfert.AsXmlString());
+        }
+
+        [Test]
+        public void ShouldGenerateCurrencyCaseInsensitive()
+        {
+            const decimal amount = 23.45m;
+            SepaCreditTransfer transfert = GetOneTransactionCreditTransfert(amount, "Eur");
+
+            const decimal total = amount * 100;
+            Assert.AreEqual(total, transfert.HeaderControlSumInCents);
+            Assert.AreEqual(total, transfert.PaymentControlSumInCents);
+
+            Assert.That(transfert.AsXmlString(), Does.Not.Contain("Eur"));
+            Assert.That(transfert.AsXmlString().Contains("EUR"));
         }
 
         [Test]
