@@ -196,7 +196,7 @@ namespace SpainHoliday.SepaWriter
             if (transfer.Id != null)
                 pmtId.NewElement("InstrId", transfer.Id);
             pmtId.NewElement("EndToEndId", transfer.EndToEndId);
-            cdtTrfTxInf.NewElement("InstdAmt", StringUtils.FormatAmount(transfer.Amount)).SetAttribute("Ccy", transfer.Currency);
+            cdtTrfTxInf.NewElement("InstdAmt", StringUtils.FormatAmount(transfer.Amount)).SetAttribute("Ccy", transfer.Currency.ToUpper());
 
             var mndtRltdInf = cdtTrfTxInf.NewElement("DrctDbtTx").NewElement("MndtRltdInf");
             mndtRltdInf.NewElement("MndtId", transfer.MandateIdentification);
