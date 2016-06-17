@@ -165,7 +165,7 @@ namespace SpainHoliday.SepaWriter
             pmtId.NewElement("EndToEndId", transfer.EndToEndId);
             cdtTrfTxInf.NewElement("Amt")
                        .NewElement("InstdAmt", StringUtils.FormatAmount(transfer.Amount))
-                       .SetAttribute("Ccy", transfer.Currency);
+                       .SetAttribute("Ccy", transfer.Currency.ToUpper());
             XmlUtils.CreateBic(cdtTrfTxInf.NewElement("CdtrAgt"), transfer.Creditor);
             cdtTrfTxInf.NewElement("Cdtr").NewElement("Nm", transfer.Creditor.Name);
 
