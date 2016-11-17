@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SpainHoliday.SepaWriter")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Utility for SEPA format bank transactions")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Spain-Holiday.com")]
 [assembly: AssemblyProduct("SpainHoliday.SepaWriter")]
