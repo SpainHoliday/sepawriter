@@ -138,22 +138,21 @@ namespace SpainHoliday.SepaWriter.Test
             Assert.True(result.Contains("<EndToEndId>endToendId2</EndToEndId>"));
         }
 
-
         [TestCase("AL47212110090000000235698741")] // Albania
         [TestCase("AD1200012030200359100100")] // Andorra
         [TestCase("AT611904300234573201")] // Austria
         [TestCase("AZ21NABZ00000000137010001944")] // Azerbaijan, Republic of
-        [TestCase("BH67BMAG00001299123456")] // Bahrain
+        //[TestCase("BH67BMAG00001299123456")] // Bahrain not a SEPA member
         [TestCase("BE68539007547034")] // Belgium
         [TestCase("BA391290079401028494")] // Bosnia and Herzegovina
-        [TestCase("BR7724891749412660603618210F3")] // Brazil
+        //[TestCase("BR7724891749412660603618210F3")] // Brazil not a SEPA member
         [TestCase("BG80BNBG96611020345678")] // Bulgaria
-        [TestCase("CR0515202001026284066")] // Costa Rica
+        //[TestCase("CR0515202001026284066")] // Costa Rica not a SEPA member
         [TestCase("HR1210010051863000160")] // Croatia
         [TestCase("CY17002001280000001200527600")] // Cyprus
         [TestCase("CZ6508000000192000145399")] // Czech Republic
         [TestCase("DK5000400440116243")] // Denmark
-        [TestCase("DO28BAGR00000001212453611324")] // Dominican Republic
+        //[TestCase("DO28BAGR00000001212453611324")] // Dominican Republic not a SEPA member
         [TestCase("EE382200221020145685")] // Estonia
         [TestCase("FO6264600001631634")] // Faroe Islands
         [TestCase("FI2112345600000785")] // Finland
@@ -163,49 +162,49 @@ namespace SpainHoliday.SepaWriter.Test
         [TestCase("GI75NWBK000000007099453")] // Gibraltar
         [TestCase("GR1601101250000000012300695")] // Greece
         [TestCase("GL8964710001000206")] // Greenland
-        [TestCase("GT82TRAJ01020000001210029690")] // Guatemala
+        //[TestCase("GT82TRAJ01020000001210029690")] // Guatemala not a SEPA member
         [TestCase("HU42117730161111101800000000")] // Hungary
         [TestCase("IS140159260076545510730339")] // Iceland
         [TestCase("IE29AIBK93115212345678")] // Ireland
         [TestCase("IL620108000000099999999")] // Israel
         [TestCase("IT60X0542811101000000123456")] // Italy
         [TestCase("JO94CBJO0010000000000131000302")] // Jordan
-        //[TestCase("KZ86125KZT5004100100")] // Kazakhstan
-        [TestCase("KW81CBKU0000000000001234560101")] // Kuwait
+        //[TestCase("KZ86125KZT5004100100")] // Kazakhstan not a SEPA member
+        //[TestCase("KW81CBKU0000000000001234560101")] // Kuwait not a SEPA member
         [TestCase("LV80BANK0000435195001")] // Latvia
-        [TestCase("LB62099900000001001901229114")] // Lebanon
+        //[TestCase("LB62099900000001001901229114")] // Lebanon not a SEPA member
         [TestCase("LI21088100002324013AA")] // Liechtenstein (Principality of)
         [TestCase("LT121000011101001000")] // Lithuania
         [TestCase("LU280019400644750000")] // Luxembourg
         [TestCase("MK07250120000058984")] // Macedonia
         [TestCase("MT84MALT011000012345MTLCAST001S")] // Malta
-        [TestCase("MR1300020001010000123456753")] // Mauritania
-        [TestCase("MU17BOMM0101101030300200000MUR")] // Mauritius
+        //[TestCase("MR1300020001010000123456753")] // Mauritania not a SEPA member
+        //[TestCase("MU17BOMM0101101030300200000MUR")] // Mauritius not a SEPA member
         [TestCase("MD24AG000225100013104168")] // Moldova
         [TestCase("MC5811222000010123456789030")] // Monaco
         [TestCase("ME25505000012345678951")] // Montenegro
         [TestCase("NL91ABNA0417164300")] // Netherlands
         [TestCase("NO9386011117947")] // Norway
-        [TestCase("PK36SCBL0000001123456702")] // Pakistan
+        //[TestCase("PK36SCBL0000001123456702")] // Pakistan not a SEPA member
         [TestCase("PL61109010140000071219812874")] // Poland
-        [TestCase("PS92PALS000000000400123456702")] // Palestinian Territory, Occupied
+        //[TestCase("PS92PALS000000000400123456702")] // Palestinian Territory, Occupied not a SEPA member
         [TestCase("PT50000201231234567890154")] // Portugal
-        [TestCase("QA58DOHB00001234567890ABCDEFG")] // Qatar
+        //[TestCase("QA58DOHB00001234567890ABCDEFG")] // Qatar not a SEPA member
         [TestCase("XK051212012345678906")] // Republic of Kosovo
-        //[TestCase("RO49AAAA1B31007593840000")] // Romania
+        [TestCase("RO49AAAA1B31007593840000")] // Romania
         //[TestCase("LC55HEMM000100010012001200023015")] // Saint Lucia
         [TestCase("SM86U0322509800000000270100")] // San Marino
-        [TestCase("ST68000100010051845310112")] // Sao Tome And Principe
-        [TestCase("SA0380000000608010167519")] // Saudi Arabia
+        //[TestCase("ST68000100010051845310112")] // Sao Tome And Principe not a SEPA member
+        //[TestCase("SA0380000000608010167519")] // Saudi Arabia not a SEPA member
         [TestCase("RS35260005601001611379")] // Serbia
-        [TestCase("SC18SSCB11010000000000001497USD")] // Seychelles
+        //[TestCase("SC18SSCB11010000000000001497USD")] // Seychelles not a SEPA member
         [TestCase("SK3112000000198742637541")] // Slovak Republic
         [TestCase("SI56263300012039086")] // Slovenia
         [TestCase("ES9121000418450200051332")] // Spain
         [TestCase("SE4550000000058398257466")] // Sweden
         [TestCase("CH9300762011623852957")] // Switzerland
-        [TestCase("TL380080012345678910157")] // Timor-Leste
-        [TestCase("TN5910006035183598478831")] // Tunisia
+        //[TestCase("TL380080012345678910157")] // Timor-Leste not a SEPA member
+        //[TestCase("TN5910006035183598478831")] // Tunisia not a SEPA member
         [TestCase("TR330006100519786457841326")] // Turkey
         [TestCase("UA213996220000026007233566001")] // Ukraine
         [TestCase("AE070331234567890123456")] // United Arab Emirates
@@ -256,22 +255,21 @@ namespace SpainHoliday.SepaWriter.Test
         }
 
 
-
         [TestCase("AL47212110090000000235698741")] // Albania
         [TestCase("AD1200012030200359100100")] // Andorra
         [TestCase("AT611904300234573201")] // Austria
         [TestCase("AZ21NABZ00000000137010001944")] // Azerbaijan, Republic of
-        [TestCase("BH67BMAG00001299123456")] // Bahrain
+        //[TestCase("BH67BMAG00001299123456")] // Bahrain not a SEPA member
         [TestCase("BE68539007547034")] // Belgium
         [TestCase("BA391290079401028494")] // Bosnia and Herzegovina
-        [TestCase("BR7724891749412660603618210F3")] // Brazil
+        //[TestCase("BR7724891749412660603618210F3")] // Brazil not a SEPA member
         [TestCase("BG80BNBG96611020345678")] // Bulgaria
-        [TestCase("CR0515202001026284066")] // Costa Rica
+        //[TestCase("CR0515202001026284066")] // Costa Rica not a SEPA member
         [TestCase("HR1210010051863000160")] // Croatia
         [TestCase("CY17002001280000001200527600")] // Cyprus
         [TestCase("CZ6508000000192000145399")] // Czech Republic
         [TestCase("DK5000400440116243")] // Denmark
-        [TestCase("DO28BAGR00000001212453611324")] // Dominican Republic
+        //[TestCase("DO28BAGR00000001212453611324")] // Dominican Republic not a SEPA member
         [TestCase("EE382200221020145685")] // Estonia
         [TestCase("FO6264600001631634")] // Faroe Islands
         [TestCase("FI2112345600000785")] // Finland
@@ -281,49 +279,49 @@ namespace SpainHoliday.SepaWriter.Test
         [TestCase("GI75NWBK000000007099453")] // Gibraltar
         [TestCase("GR1601101250000000012300695")] // Greece
         [TestCase("GL8964710001000206")] // Greenland
-        [TestCase("GT82TRAJ01020000001210029690")] // Guatemala
+        //[TestCase("GT82TRAJ01020000001210029690")] // Guatemala not a SEPA member
         [TestCase("HU42117730161111101800000000")] // Hungary
         [TestCase("IS140159260076545510730339")] // Iceland
         [TestCase("IE29AIBK93115212345678")] // Ireland
         [TestCase("IL620108000000099999999")] // Israel
         [TestCase("IT60X0542811101000000123456")] // Italy
         [TestCase("JO94CBJO0010000000000131000302")] // Jordan
-        //[TestCase("KZ86125KZT5004100100")] // Kazakhstan
-        [TestCase("KW81CBKU0000000000001234560101")] // Kuwait
+        //[TestCase("KZ86125KZT5004100100")] // Kazakhstan not a SEPA member
+        //[TestCase("KW81CBKU0000000000001234560101")] // Kuwait not a SEPA member
         [TestCase("LV80BANK0000435195001")] // Latvia
-        [TestCase("LB62099900000001001901229114")] // Lebanon
+        //[TestCase("LB62099900000001001901229114")] // Lebanon not a SEPA member
         [TestCase("LI21088100002324013AA")] // Liechtenstein (Principality of)
         [TestCase("LT121000011101001000")] // Lithuania
         [TestCase("LU280019400644750000")] // Luxembourg
         [TestCase("MK07250120000058984")] // Macedonia
         [TestCase("MT84MALT011000012345MTLCAST001S")] // Malta
-        [TestCase("MR1300020001010000123456753")] // Mauritania
-        [TestCase("MU17BOMM0101101030300200000MUR")] // Mauritius
+        //[TestCase("MR1300020001010000123456753")] // Mauritania not a SEPA member
+        //[TestCase("MU17BOMM0101101030300200000MUR")] // Mauritius not a SEPA member
         [TestCase("MD24AG000225100013104168")] // Moldova
         [TestCase("MC5811222000010123456789030")] // Monaco
         [TestCase("ME25505000012345678951")] // Montenegro
         [TestCase("NL91ABNA0417164300")] // Netherlands
         [TestCase("NO9386011117947")] // Norway
-        [TestCase("PK36SCBL0000001123456702")] // Pakistan
+        //[TestCase("PK36SCBL0000001123456702")] // Pakistan not a SEPA member
         [TestCase("PL61109010140000071219812874")] // Poland
-        [TestCase("PS92PALS000000000400123456702")] // Palestinian Territory, Occupied
+        //[TestCase("PS92PALS000000000400123456702")] // Palestinian Territory, Occupied not a SEPA member
         [TestCase("PT50000201231234567890154")] // Portugal
-        [TestCase("QA58DOHB00001234567890ABCDEFG")] // Qatar
+        //[TestCase("QA58DOHB00001234567890ABCDEFG")] // Qatar not a SEPA member
         [TestCase("XK051212012345678906")] // Republic of Kosovo
-        //[TestCase("RO49AAAA1B31007593840000")] // Romania
+        [TestCase("RO49AAAA1B31007593840000")] // Romania
         //[TestCase("LC55HEMM000100010012001200023015")] // Saint Lucia
         [TestCase("SM86U0322509800000000270100")] // San Marino
-        [TestCase("ST68000100010051845310112")] // Sao Tome And Principe
-        [TestCase("SA0380000000608010167519")] // Saudi Arabia
+        //[TestCase("ST68000100010051845310112")] // Sao Tome And Principe not a SEPA member
+        //[TestCase("SA0380000000608010167519")] // Saudi Arabia not a SEPA member
         [TestCase("RS35260005601001611379")] // Serbia
-        [TestCase("SC18SSCB11010000000000001497USD")] // Seychelles
+        //[TestCase("SC18SSCB11010000000000001497USD")] // Seychelles not a SEPA member
         [TestCase("SK3112000000198742637541")] // Slovak Republic
         [TestCase("SI56263300012039086")] // Slovenia
         [TestCase("ES9121000418450200051332")] // Spain
         [TestCase("SE4550000000058398257466")] // Sweden
         [TestCase("CH9300762011623852957")] // Switzerland
-        [TestCase("TL380080012345678910157")] // Timor-Leste
-        [TestCase("TN5910006035183598478831")] // Tunisia
+        //[TestCase("TL380080012345678910157")] // Timor-Leste not a SEPA member
+        //[TestCase("TN5910006035183598478831")] // Tunisia not a SEPA member
         [TestCase("TR330006100519786457841326")] // Turkey
         [TestCase("UA213996220000026007233566001")] // Ukraine
         [TestCase("AE070331234567890123456")] // United Arab Emirates
@@ -369,22 +367,21 @@ namespace SpainHoliday.SepaWriter.Test
             validator.Validate(transfert.AsXmlString());
         }
 
-
         [TestCase("AL47212110090000000235698741")] // Albania
         [TestCase("AD1200012030200359100100")] // Andorra
         [TestCase("AT611904300234573201")] // Austria
         [TestCase("AZ21NABZ00000000137010001944")] // Azerbaijan, Republic of
-        [TestCase("BH67BMAG00001299123456")] // Bahrain
+        //[TestCase("BH67BMAG00001299123456")] // Bahrain not a SEPA member
         [TestCase("BE68539007547034")] // Belgium
         [TestCase("BA391290079401028494")] // Bosnia and Herzegovina
-        [TestCase("BR7724891749412660603618210F3")] // Brazil
+        //[TestCase("BR7724891749412660603618210F3")] // Brazil not a SEPA member
         [TestCase("BG80BNBG96611020345678")] // Bulgaria
-        [TestCase("CR0515202001026284066")] // Costa Rica
+        //[TestCase("CR0515202001026284066")] // Costa Rica not a SEPA member
         [TestCase("HR1210010051863000160")] // Croatia
         [TestCase("CY17002001280000001200527600")] // Cyprus
         [TestCase("CZ6508000000192000145399")] // Czech Republic
         [TestCase("DK5000400440116243")] // Denmark
-        [TestCase("DO28BAGR00000001212453611324")] // Dominican Republic
+        //[TestCase("DO28BAGR00000001212453611324")] // Dominican Republic not a SEPA member
         [TestCase("EE382200221020145685")] // Estonia
         [TestCase("FO6264600001631634")] // Faroe Islands
         [TestCase("FI2112345600000785")] // Finland
@@ -394,49 +391,49 @@ namespace SpainHoliday.SepaWriter.Test
         [TestCase("GI75NWBK000000007099453")] // Gibraltar
         [TestCase("GR1601101250000000012300695")] // Greece
         [TestCase("GL8964710001000206")] // Greenland
-        [TestCase("GT82TRAJ01020000001210029690")] // Guatemala
+        //[TestCase("GT82TRAJ01020000001210029690")] // Guatemala not a SEPA member
         [TestCase("HU42117730161111101800000000")] // Hungary
         [TestCase("IS140159260076545510730339")] // Iceland
         [TestCase("IE29AIBK93115212345678")] // Ireland
         [TestCase("IL620108000000099999999")] // Israel
         [TestCase("IT60X0542811101000000123456")] // Italy
         [TestCase("JO94CBJO0010000000000131000302")] // Jordan
-        //[TestCase("KZ86125KZT5004100100")] // Kazakhstan
-        [TestCase("KW81CBKU0000000000001234560101")] // Kuwait
+        //[TestCase("KZ86125KZT5004100100")] // Kazakhstan not a SEPA member
+        //[TestCase("KW81CBKU0000000000001234560101")] // Kuwait not a SEPA member
         [TestCase("LV80BANK0000435195001")] // Latvia
-        [TestCase("LB62099900000001001901229114")] // Lebanon
+        //[TestCase("LB62099900000001001901229114")] // Lebanon not a SEPA member
         [TestCase("LI21088100002324013AA")] // Liechtenstein (Principality of)
         [TestCase("LT121000011101001000")] // Lithuania
         [TestCase("LU280019400644750000")] // Luxembourg
         [TestCase("MK07250120000058984")] // Macedonia
         [TestCase("MT84MALT011000012345MTLCAST001S")] // Malta
-        [TestCase("MR1300020001010000123456753")] // Mauritania
-        [TestCase("MU17BOMM0101101030300200000MUR")] // Mauritius
+        //[TestCase("MR1300020001010000123456753")] // Mauritania not a SEPA member
+        //[TestCase("MU17BOMM0101101030300200000MUR")] // Mauritius not a SEPA member
         [TestCase("MD24AG000225100013104168")] // Moldova
         [TestCase("MC5811222000010123456789030")] // Monaco
         [TestCase("ME25505000012345678951")] // Montenegro
         [TestCase("NL91ABNA0417164300")] // Netherlands
         [TestCase("NO9386011117947")] // Norway
-        [TestCase("PK36SCBL0000001123456702")] // Pakistan
+        //[TestCase("PK36SCBL0000001123456702")] // Pakistan not a SEPA member
         [TestCase("PL61109010140000071219812874")] // Poland
-        [TestCase("PS92PALS000000000400123456702")] // Palestinian Territory, Occupied
+        //[TestCase("PS92PALS000000000400123456702")] // Palestinian Territory, Occupied not a SEPA member
         [TestCase("PT50000201231234567890154")] // Portugal
-        [TestCase("QA58DOHB00001234567890ABCDEFG")] // Qatar
+        //[TestCase("QA58DOHB00001234567890ABCDEFG")] // Qatar not a SEPA member
         [TestCase("XK051212012345678906")] // Republic of Kosovo
-        //[TestCase("RO49AAAA1B31007593840000")] // Romania
+        [TestCase("RO49AAAA1B31007593840000")] // Romania
         //[TestCase("LC55HEMM000100010012001200023015")] // Saint Lucia
         [TestCase("SM86U0322509800000000270100")] // San Marino
-        [TestCase("ST68000100010051845310112")] // Sao Tome And Principe
-        [TestCase("SA0380000000608010167519")] // Saudi Arabia
+        //[TestCase("ST68000100010051845310112")] // Sao Tome And Principe not a SEPA member
+        //[TestCase("SA0380000000608010167519")] // Saudi Arabia not a SEPA member
         [TestCase("RS35260005601001611379")] // Serbia
-        [TestCase("SC18SSCB11010000000000001497USD")] // Seychelles
+        //[TestCase("SC18SSCB11010000000000001497USD")] // Seychelles not a SEPA member
         [TestCase("SK3112000000198742637541")] // Slovak Republic
         [TestCase("SI56263300012039086")] // Slovenia
         [TestCase("ES9121000418450200051332")] // Spain
         [TestCase("SE4550000000058398257466")] // Sweden
         [TestCase("CH9300762011623852957")] // Switzerland
-        [TestCase("TL380080012345678910157")] // Timor-Leste
-        [TestCase("TN5910006035183598478831")] // Tunisia
+        //[TestCase("TL380080012345678910157")] // Timor-Leste not a SEPA member
+        //[TestCase("TN5910006035183598478831")] // Tunisia not a SEPA member
         [TestCase("TR330006100519786457841326")] // Turkey
         [TestCase("UA213996220000026007233566001")] // Ukraine
         [TestCase("AE070331234567890123456")] // United Arab Emirates
@@ -680,14 +677,11 @@ namespace SpainHoliday.SepaWriter.Test
         [TestCase("AD1200011130200359100100")] // Andorra - edited
         [TestCase("AT611901100234573201")] // Austria - edited
         [TestCase("AZ21NABZ00110000137010001944")] // Azerbaijan - edited
-        [TestCase("BH67BMAG01001299123456")] // Bahrain - edited
         [TestCase("BE18531007547034")] // Belgium - edited
-        [TestCase("CR0515102001026284066")] // Costa Rica - edited
         [TestCase("HR1210110051863000160")] // Croatia - edited
         [TestCase("CY17001001280000001200527600")] // Cyprus - edited
         [TestCase("CZ6508010000192000145399")] // Czech Republic - edited
         [TestCase("DK5000100440116243")] // Denmark - edited
-        [TestCase("DO28BAGR01000001212453611324")] // Dominican Republic - edited
         [TestCase("EE382200211020145685")] // Estonia - edited
         [TestCase("FO6264600101631634")] // Faroe Islands - edited
         [TestCase("FI2112345600000715")] // Finland - edited
@@ -697,13 +691,11 @@ namespace SpainHoliday.SepaWriter.Test
         [TestCase("GI75NWBK000000001099453")] // Gibraltar - edited
         [TestCase("GR1601101250000010012300695")] // Greece - edited
         [TestCase("GL8964710001000216")] // Greenland - edited
-        [TestCase("GT82TRAJ01020000001110029690")] // Guatemala - edited
         [TestCase("HU42117730161111101100000000")] // Hungary - edited
         [TestCase("IS140159260076545511730339")] // Iceland - edited
         [TestCase("IE29AIBK93115212345178")] // Ireland - edited
         [TestCase("IL620108000000099991999")] // Israel - edited
         [TestCase("IT60X0542811101000010123456")] // Italy - edited
-        [TestCase("JO94CBJO0010000000010131000302")] // Jordan - edited
         public void ShouldRejectInvalidChecksum(string iban)
         {
             Assert.That(() => new SepaIbanData { Iban = iban },

@@ -141,7 +141,7 @@ namespace SpainHoliday.SepaWriter.Test
         public void ShouldRejectInvalidIbanFormat()
         {
             Assert.That(() => { new SepaIbanData { Iban = "FRBABABA2005500000157845Z02" , Bic = Bic}; },
-                Throws.TypeOf<SepaRuleException>().With.Property("Message").Contains("Invalid format of IBAN code"));
+                Throws.TypeOf<SepaRuleException>().With.Property("Message").Contains("Invalid format of IBAN"));
         }
 
         [Test]
