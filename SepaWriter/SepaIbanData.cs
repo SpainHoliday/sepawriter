@@ -14,9 +14,6 @@ namespace SpainHoliday.SepaWriter
 		private string name;
 		private bool withoutBic;
 
-		// Regex to find space
-		private static readonly Regex SpaceRegex = new Regex("\\s+", RegexOptions.Compiled); 
-
 		/// <summary>
 		/// The Name of the owner
 		/// </summary>
@@ -74,30 +71,11 @@ namespace SpainHoliday.SepaWriter
 			get { return iban; }
 			set
 			{
-				if (value == null || value.Length < 14 || value.Length > 34)
-					throw new SepaRuleException(string.Format("Null or Invalid length of IBAN code \"{0}\", must contain between 14 and 34 characters.", value));
+                string errorMessage;
+                if (!IbanValidationUtils.IsIbanValid(value, out errorMessage))
+                    throw new SepaRuleException(errorMessage);
 
-				value = SpaceRegex.Replace(value.ToUpper(), string.Empty);
-                var regex = IbanValidationUtils.GetRegex(value);// @"^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0," + IbanValidationUtils.GetValidIbanLength(value)+ "}$";
-                var match = Regex.Match(value, regex, RegexOptions.IgnoreCase);
-
-                if (!match.Success)
-                {
-                    // does not match
-                    throw new SepaRuleException(string.Format("Invalid format of IBAN code \"{0}\".", value));
-                }
-                if (!IbanValidationUtils.IsIbanLengthValid(value))
-				{
-					// does not match
-					throw new SepaRuleException(string.Format("Invalid length of IBAN code \"{0}\" for the specified country.", value));
-				}
-				if (!IbanValidationUtils.IsIbanChecksumValid(value))
-				{
-					throw new SepaRuleException(string.Format("Invalid IBAN checksum on \"{0}\".", value));
-
-				}
-
-				iban = value;
+                iban = IbanValidationUtils.ReformatIban(value);
 			}
 		}
 

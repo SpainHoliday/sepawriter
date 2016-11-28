@@ -1,7 +1,60 @@
-﻿namespace SpainHoliday.SepaWriter.Utils
+﻿using System.Text.RegularExpressions;
+
+namespace SpainHoliday.SepaWriter.Utils
 {
     public static class IbanValidationUtils
     {
+        // Regex to find space
+        private static readonly Regex SpaceRegex = new Regex("\\s+", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Checks that the IBAN number is valid. Checks format, length and checksum.
+        /// Returns true if the IBAN number is valid. Otherwise returns false and a message in <paramref name="errorMessage"/>.
+        /// </summary>
+        /// <param name="iban">IBAN number to be validated.</param>
+        /// <param name="errorMessage">If the IBAN number is invalid, <paramref name="errorMessage"/> will contain a description of the error.</param>
+        public static bool IsIbanValid(string iban, out string errorMessage)
+        {
+            if (iban == null || iban.Length < 14 || iban.Length > 34)
+            {
+                errorMessage = string.Format("Null or Invalid length of IBAN code \"{0}\", must contain between 14 and 34 characters.", iban);
+                return false;
+            }
+
+            iban = ReformatIban(iban);
+            var regex = GetRegex(iban);
+            var match = Regex.Match(iban, regex, RegexOptions.IgnoreCase);
+            if (!match.Success)
+            {
+                errorMessage = string.Format("Invalid format of IBAN code \"{0}\".", iban);
+                return false;
+            }
+
+            if (!IsIbanLengthValid(iban))
+            {
+                errorMessage = string.Format("Invalid length of IBAN code \"{0}\" for the specified country.", iban);
+                return false;
+            }
+
+            if (!IsIbanChecksumValid(iban))
+            {
+                errorMessage = string.Format("Invalid IBAN checksum on \"{0}\".", iban);
+                return false;
+            }
+
+            errorMessage = string.Empty;
+            return true;
+        }
+
+        /// <summary>
+        /// Reformats the IBAN number, so it is in upper-case.
+        /// </summary>
+        /// <param name="iban"></param>
+        public static string ReformatIban(string iban)
+        {
+            return SpaceRegex.Replace(iban.ToUpper(), string.Empty);
+        }
+
         /// <summary>
         /// An IBAN is validated by converting it into an integer and performing a basic mod-97 operation (as described in ISO 7064) on it. If the IBAN is valid, the remainder equals 1. The algorithm of IBAN validation is as follows:
         ///   1.  Check that the total IBAN length is correct as per the country.If not, the IBAN is invalid
