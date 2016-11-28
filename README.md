@@ -13,6 +13,10 @@ Debit uses &lt;pain.008.001.02&gt; defined in ISO 20022 and the same french rest
 This version of the SepaWriter repository has automatic conversion to UPPERCASE for Bic/IBAN, with Regex added for Bic and IBAN code validation.
 
 
+Version 1.0.6
+---
+Added IbanValidationUtils.IsIbanValid(..)
+
 Version 1.0.5
 ---
 Improved IBAN validation, with regex specific to each country.
