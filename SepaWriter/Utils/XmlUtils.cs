@@ -27,7 +27,7 @@ namespace SpainHoliday.SepaWriter.Utils
         {
             if (iban.UnknownBic)
             {
-                element.NewElement("FinInstnId").NewElement("BIC").NewElement("Othr").NewElement("Id", "NOTPROVIDED");
+                element.NewElement("FinInstnId").NewElement("Othr").NewElement("Id", "NOTPROVIDED");
             }
             else
             {
