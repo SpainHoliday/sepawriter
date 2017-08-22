@@ -3,7 +3,7 @@ SepaWriter
 [![sepawriter MyGet Build Status](https://www.myget.org/BuildSource/Badge/sepawriter?identifier=e1d53645-035c-47b4-bf78-48c34f912349)](https://www.myget.org/)
 
 Manage SEPA (Single Euro Payments Area) Credit and Debit Transfer for SEPA or international order.
-Only one PaymentInformation is managed but it can manage multiple transactions. 
+Only one PaymentInformation is managed but it can manage multiple transactions.
 - The debitor is common to all transactions in a Credit transfer.
 - The creditor is common to all transactions in a Debit transfer.
 
@@ -12,6 +12,10 @@ Debit uses &lt;pain.008.001.02&gt; defined in ISO 20022 and the same french rest
 
 This version of the SepaWriter repository has automatic conversion to UPPERCASE for Bic/IBAN, with Regex added for Bic and IBAN code validation.
 
+
+Version 1.0.7
+---
+Fix to validate correctly, by removing Bic element where the value is not provided. (from pull request)
 
 Version 1.0.6
 ---
@@ -92,4 +96,3 @@ License:
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
