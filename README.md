@@ -15,7 +15,7 @@ This version of the SepaWriter repository has automatic conversion to UPPERCASE 
 
 Version 1.0.7
 ---
-Fix to validate correctly, by removing Bic element where the value is not provided. (from pull request)
+Bug fix: Removes the BIC-element from FinInstnId if a BIC is not supplied
 
 Version 1.0.6
 ---
